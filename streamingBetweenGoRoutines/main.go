@@ -13,7 +13,7 @@ func main() {
 			fmt.Printf("-> writing %q\n", s)
 			_, _ = fmt.Fprint(w, s)
 		}
-		w.Close() // we need to close the writer so as to send EOF error when a reader tries to read more data
+		_ = w.Close() // we need to close the writer so as to send EOF error when a reader tries to read more data
 	}(writer)
 
 	var err error
